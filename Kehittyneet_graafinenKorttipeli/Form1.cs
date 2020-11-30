@@ -11,7 +11,7 @@ using System.Threading;
 
 namespace Kehittyneet_graafinenKorttipeli
 {
-
+    //globaali enum 
     public enum MAA
     {
         RISTI, RUUTU, HERTTA, PATA
@@ -23,24 +23,35 @@ namespace Kehittyneet_graafinenKorttipeli
     {
         //muuttujien alustus
 
+            /*
+             Dokumentaatio:
+            
+            Kuvia ei pysty fiksusti vertaileen?
+            Huomaa että pictureBoxit ja Kadessa olevien kortit samalla indeksillä
 
+            atm tulostus tehty sorttaamalla aina kortit ja tulostettu kaikki kortit uudelleen, 
+            kasi olion indeksointi muuttuu kun poistaa kortin kädestä, mikä ei ole viimeisessä indeksissä
 
+            */
+
+        // ei käytössä
         bool peliKaynnissa = false;
 
+        //globaaleja
         Kasi kasi = new Kasi();
         Korttipakka pakka = new Korttipakka();
 
 
-        //spessu 
+        //spessu kortit
         //string korttiVaarinpain = "cards_53_backs.bmp"; 
         const string korttiVaarinpain = "cards_59_backs.bmp";
 
         //pictureBoxit listassa
         List<PictureBox> pictureBoxit = new List<PictureBox>();
 
-        //Lista jossa pidetään vaihdettavien korttien indeksi
+        //Lista jossa pidetään vaihdettavien korttien indeksi, ei tarvisi ehkä olla globaali
         List<int> vaihdettavatKortit = new List<int>();
-
+        //"animaation" nopeus (ms)
         const int odotusaika = 100;
 
 
@@ -70,6 +81,7 @@ namespace Kehittyneet_graafinenKorttipeli
             pictureBoxit.Add(pictureBox3);
             pictureBoxit.Add(pictureBox4);
 
+            //aktivoi korttien vaihtonappi. vois ehkä myös hidettää kokonaan sen sijaan kuin enable/disable
             button2.Enabled = true;
 
             
@@ -82,26 +94,10 @@ namespace Kehittyneet_graafinenKorttipeli
             }
             //järjestä kortit numerojärjestykseen
            
-
-            // näytä kortit väärinpäin ja sitten "animoidusti oikeinpäin"
-            /*
-               for (int i = 0; i < 5; i++)
-               {
-                   pictureBoxit.ElementAt(i).Image = Image.FromFile(korttiVaarinpain);
-                   await Task.Delay(odotusaika);
-               }
-
-               for (int i = 0; i < 5; i++)
-               {
-                   pictureBoxit.ElementAt(i).Image = Image.FromFile(kasi.getKortti(i).getTiedostoNimi());
-                   await Task.Delay(odotusaika);
-               }
-               */
-
-
+                       
             kasi.jarjestaKortit();
 
-
+            //asynkronin funktio jotta pääsee await Task.Delay(), jostain syystä Thread.Sleep() ei toiminut
             tulostaKokoKasiAnimaatio();
 
 
@@ -109,66 +105,73 @@ namespace Kehittyneet_graafinenKorttipeli
             //  for (int i = 0; i < 5; i++)
             //   pictureBoxit.ElementAt(i).Image = Image.FromFile(kasi.getKortti(i).getTiedostoNimi());
 
+            //sulkee ohjelman kun kortteja vähän, tulee stack erroria jos kortit loppuu kesken
+            // huomasimpa että eipäs muuten menekkään
             if (pakka.getStackKoko() < 5)
             {
                 Application.Exit();
-            }
-
-            //pictureBox0.Image = Image.FromFile(kasi.getKortti(0).getTiedostoNimi());
+            }           
 
 
         }
 
+        //tiputusvalikko credits
         private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Versio 1.0\n\nTekijat:\n\nJani Sillanpaa\nMatti Moisander\nEemil Peltonen", "Moro");
+            MessageBox.Show("Versio 1.0\n\nTekijat:\n\nJani Sillanpaa\nMatti Moisander\nEemil Peltonen", "Moro!");
         }
 
+        //koko korttirivin animointi
         private async Task tulostaKokoKasiAnimaatio()
         {
 
-            for (int i = 0; i < 5; i++)
+            // ota pictureBoxeista kuvat pois, tarviikohan?
+            for (int i = 0; i < pictureBoxit.Count(); i++)
                 pictureBoxit.ElementAt(i).InitialImage = null;
 
+            //käännä kaikki kortit väärinpäin
             for (int i = 0; i < 5; i++)
             {
-
                 pictureBoxit.ElementAt(i).Image = Image.FromFile(korttiVaarinpain);
                 await Task.Delay(odotusaika);
             }
 
-            for (int i = 0; i < 5; i++)
+            //käännä kaikki kortit oikeinpäin
+            for (int i = 0; i < pictureBoxit.Count(); i++)
             {
                 pictureBoxit.ElementAt(i).Image = Image.FromFile(kasi.getKortti(i).getTiedostoNimi());
                 await Task.Delay(odotusaika);
             }
+            //päivitä teksti montako korttia stäkissä
             LABEL2.Text = "Jäljellä olevat korit:\n" + pakka.getStackKoko().ToString();
         }
 
+        //menupalkin quit
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        //uusi peli
         private void button1_Click(object sender, EventArgs e)
         {
             peliPaalle();
         }
 
-
+        // :D
         private void salaisuusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Ei saa olla salaisuuksia");
         }
 
-        // jos kortti väärinpäin, kortti vaihdetaan
+        // jos kortti väärinpäin, kortti vaihdetaan. Eli vaihda kortit painike
         private void button2_Click(object sender, EventArgs e)
         {
-
+            /* paskaa koodia kun koitin ettiä bugia */
             //listaan kortit jotka väärinpäin ja vaihdetaan ne
             List<int> vaihdettavatIndeksit = new List<int>();
 
-            // katotaan vaihdettavat kortit suurimmasta pienimpää, muuten indeksointi menee rikki
+            // katotaan vaihdettavat kortit suurimmasta pienimpää, muuten indeksointi menee rikki (((menee joka tapauksessa, ei väliä)))
             for (int i = 4; i >= 0; i--)
                 if (kasi.getKortti(i).getStatus() == false)
                     vaihdettavatIndeksit.Add(i);
@@ -177,6 +180,7 @@ namespace Kehittyneet_graafinenKorttipeli
             int temp = -1;
 
 
+            //ota vaihdettavat kortit pois
             for (int i = 0; i < vaihdettavatIndeksit.Count(); i++)
             {
                 temp = vaihdettavatIndeksit.ElementAt(i);
@@ -184,17 +188,22 @@ namespace Kehittyneet_graafinenKorttipeli
                 count++;
             }
 
+            //lisätään saman verran kortteja
             for (int i = 0; i < count; i++)
             {
                 kasi.lisaaKortti(pakka.annaKortti());
             }
                                           
-            //järjestetään käsi ja printataan se
+            //järjestetään käden kortit ja printataan se
             kasi.jarjestaKortit();
 
             tulostaKokoKasiAnimaatio();
         }
 
+        /*
+         kaikille pictureBoxeille clikkaus funktio josta viedään yhteen funktioon ettei tarvis kirjotella niin paljoa
+         oisko parempaa toteutusta? 
+         */
         private void pictureBox0_Click(object sender, EventArgs e)
         {
             int index = 0;
@@ -225,6 +234,7 @@ namespace Kehittyneet_graafinenKorttipeli
             korttienVaihto(pictureBoxit.ElementAt(index), index);
         }
 
+        //klikki funktioille yhteinen toteutus, sama järjestys picboxien indeksit ja käden korttien indeksit ettei mee sekaisin
         private void korttienVaihto(PictureBox p_box, int index)
         {   // jos kortti oikeinpäin
             if (kasi.getKortti(index).getStatus())
@@ -243,6 +253,7 @@ namespace Kehittyneet_graafinenKorttipeli
             }
         }
 
+        // en oo uskaltanu poistaa ku visual studio herjaa
         private void label1_Click(object sender, EventArgs e)
         {
 
