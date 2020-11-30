@@ -8,7 +8,7 @@ namespace Kehittyneet_graafinenKorttipeli
 {
     class Korttipakka
     {
-        /* Kortit listaan kun siinä on kivoja sorttaus metodeja valmiina, pelin toteutuksessa stäkki, vois olla vaan metodeilla temp_lista
+        /* Kortit listaan kun siinä on kivoja sorttaus metodeja valmiina, pelin toteutuksessa stäkki. vois olla vaan metodeilla temp_lista
          koko luokan attribuutin sijaan... legacy koodia ennen kun stakki tuli käyttöön... */
        private List<Kortti> korttiLista = new List<Kortti>();
        private Stack<Kortti> korttiPakka = new Stack<Kortti>();
@@ -18,6 +18,7 @@ namespace Kehittyneet_graafinenKorttipeli
         {            
             for (int i = 2; i < 15; i++)
             {
+                //Enum.GetValues = hakee enumin varsinaisen int arvon. risti = 0, ruutu = 1, hertta = 2, pata = 3 
                 foreach (MAA maa in Enum.GetValues(typeof(MAA)))
                     korttiLista.Add(new Kortti(i, maa));
             }
@@ -45,12 +46,14 @@ namespace Kehittyneet_graafinenKorttipeli
         }
 
         private void sekoitaKorttilista()
-        {
+        {   // kuinka hyvä satunnaisuus todellisuudessa?
             korttiLista = korttiLista.OrderBy(a => Guid.NewGuid()).ToList();
         }
 
         public void sekoitaKorttiPakka()
-        {
+        {   /* 
+            esim tälläinen toteutus niin saisi sekoitaKorttilista() ja jarjestaKorttilista() metodit pois
+             */
             List<Kortti> temp_kortit = new List<Kortti>();
 
             while (korttiPakka.Count > 0)
@@ -64,7 +67,7 @@ namespace Kehittyneet_graafinenKorttipeli
         }
 
         public override string ToString()
-        {
+        {   // legacya
             string tuloste = "";
             foreach (Kortti kortti in korttiPakka)
             {

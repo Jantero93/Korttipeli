@@ -15,7 +15,7 @@ namespace Kehittyneet_graafinenKorttipeli
         public int arvo;
         public MAA kortin_maa;
         string kuvanTiedosto;
-        //pidetään tietoa kumminpäin olio on grafiikoissa
+        //pidetään tietoa kumminpäin kortti on grafiikoissa
         bool oikeinPain = true;
         
         public Kortti (int arvo_parametri, MAA kortin_maa_parametri)

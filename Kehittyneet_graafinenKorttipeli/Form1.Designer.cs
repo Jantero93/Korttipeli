@@ -167,6 +167,7 @@
             this.LABEL2.Size = new System.Drawing.Size(58, 13);
             this.LABEL2.TabIndex = 9;
             this.LABEL2.Text = "gdfgdfgdfg";
+            this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
             // Form1
