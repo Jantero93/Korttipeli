@@ -8,7 +8,8 @@ namespace Kehittyneet_graafinenKorttipeli
 {
     class Korttipakka
     {
-        /* Kortit listaan kun siinä on kivoja sorttaus metodeja valmiina, pelin toteutuksessa stäkki */
+        /* Kortit listaan kun siinä on kivoja sorttaus metodeja valmiina, pelin toteutuksessa stäkki, vois olla vaan metodeilla temp_lista
+         koko luokan attribuutin sijaan... legacy koodia ennen kun stakki tuli käyttöön... */
        private List<Kortti> korttiLista = new List<Kortti>();
        private Stack<Kortti> korttiPakka = new Stack<Kortti>();
 
@@ -28,16 +29,16 @@ namespace Kehittyneet_graafinenKorttipeli
                 korttiPakka.Push(kortti);
             }
         }
-
+        /* 
         public void tulostaKokoLista()
-        {            
+        {           
             for (int i = 0; i < korttiLista.Count(); i++)
             {
                 Console.Write(korttiLista.ElementAt(i) + "\n");
             }   
             
         }        
-
+        */
         private void jarjestaKorttilista()
         {
             korttiLista = korttiLista.OrderBy(p => p.arvo).ToList();

@@ -56,7 +56,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(552, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(523, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -137,6 +137,8 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(45, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 64);
@@ -147,6 +149,8 @@
             // 
             // button2
             // 
+            this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(199, 201);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 64);
@@ -158,10 +162,11 @@
             // LABEL2
             // 
             this.LABEL2.AutoSize = true;
-            this.LABEL2.Location = new System.Drawing.Point(419, 210);
+            this.LABEL2.Location = new System.Drawing.Point(392, 201);
             this.LABEL2.Name = "LABEL2";
-            this.LABEL2.Size = new System.Drawing.Size(0, 13);
+            this.LABEL2.Size = new System.Drawing.Size(58, 13);
             this.LABEL2.TabIndex = 9;
+            this.LABEL2.Text = "gdfgdfgdfg";
             this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
             // Form1
@@ -169,7 +174,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(552, 347);
+            this.ClientSize = new System.Drawing.Size(523, 333);
             this.Controls.Add(this.LABEL2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -179,6 +184,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox0);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "Form1";
