@@ -33,7 +33,7 @@ namespace Kehittyneet_graafinenKorttipeli
 
         //spessu 
         //string korttiVaarinpain = "cards_53_backs.bmp"; 
-        string korttiVaarinpain = "cards_59_backs.bmp";
+        const string korttiVaarinpain = "cards_59_backs.bmp";
 
         //pictureBoxit listassa
         List<PictureBox> pictureBoxit = new List<PictureBox>();
@@ -41,7 +41,7 @@ namespace Kehittyneet_graafinenKorttipeli
         //Lista jossa pidetään vaihdettavien korttien indeksi
         List<int> vaihdettavatKortit = new List<int>();
 
-        const int odotusaika = 175;
+        const int odotusaika = 100;
 
 
 
