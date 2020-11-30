@@ -54,10 +54,14 @@ namespace Kehittyneet_graafinenKorttipeli
 
         private void peliPaalle()
         {
-
+            //alustaa aina käden ja korttipakan kun aloittaa uuden pelin
             pakka = new Korttipakka();
+            kasi = new Kasi();
             pakka.sekoitaKorttiPakka();
+            LABEL2.Text = "Jäljellä olevat korit:\n" + pakka.getStackKoko().ToString();
 
+            //tyhjennä käsi, jos alotetaan uusi peli kesken pelin
+            // niin pakka resetoituu mutta käteen jää kortit
 
             //pictureBoxit yhteen listaan
             pictureBoxit.Add(pictureBox0);

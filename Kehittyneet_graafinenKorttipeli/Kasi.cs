@@ -43,7 +43,7 @@ namespace Kehittyneet_graafinenKorttipeli
             return tulostus;
         }
 
-        public bool kasiTaynna()
+        public bool kasiTaynna() //kädessä 5 korttia max
         {
             if (kasi.Count() == 5) return true;
             else return false;

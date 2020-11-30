@@ -15,6 +15,7 @@ namespace Kehittyneet_graafinenKorttipeli
         public int arvo;
         public MAA kortin_maa;
         string kuvanTiedosto;
+        //pidetään tietoa kumminpäin olio on grafiikoissa
         bool oikeinPain = true;
         
         public Kortti (int arvo_parametri, MAA kortin_maa_parametri)
@@ -44,7 +45,8 @@ namespace Kehittyneet_graafinenKorttipeli
 
             arvo = arvo_parametri;
             kortin_maa = kortin_maa_parametri;
-
+            // tiedosto nimet muotoa cards_ + arvo + maa 
+            // ristit 2-14, ruudut (kortin arvo + 13)  15-27, (kortin arvo + 26) hertat 28-40, (kortin arvo + 39) padat 41-53
             string cardT = "cards_";          
 
             switch (kortin_maa)
