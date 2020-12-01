@@ -34,7 +34,7 @@ namespace Kehittyneet_graafinenKorttipeli
 
         public void jarjestaKortit()
         {            
-            kasi = kasi.OrderBy(p => p.arvo).ToList();
+            kasi = kasi.OrderBy(kortti => kortti.arvo).ToList();
         }
 
         // legacya, turha

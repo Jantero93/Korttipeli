@@ -141,12 +141,12 @@ namespace Kehittyneet_graafinenKorttipeli
             return kuvanTiedosto;
         }
 
-        public bool getStatus()
+        public bool korttiOikeinPain()
         {
             return oikeinPain;
         }
 
-        public void setStatus()
+        public void kaannaKortti()
         {
             oikeinPain = !oikeinPain;
         }
