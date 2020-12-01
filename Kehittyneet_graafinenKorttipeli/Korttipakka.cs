@@ -19,6 +19,7 @@ namespace Kehittyneet_graafinenKorttipeli
             for (int i = 2; i < 15; i++)
             {
                 //Enum.GetValues = hakee enumin varsinaisen int arvon. risti = 0, ruutu = 1, hertta = 2, pata = 3 
+                //eli pakkaan tehdään kaikki kortit ristit 2 - A, ruudut 2 - A jne
                 foreach (MAA maa in Enum.GetValues(typeof(MAA)))
                     korttiLista.Add(new Kortti(i, maa));
             }
