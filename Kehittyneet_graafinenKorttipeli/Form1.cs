@@ -61,18 +61,6 @@ namespace Kehittyneet_graafinenKorttipeli
             InitializeComponent();
             button2.Enabled = false;
             LABEL2.Text = "";
-        }
-
-        private void peliPaalle()
-        {
-            //alustaa aina käden ja korttipakan kun aloittaa uuden pelin
-            pakka = new Korttipakka();
-            kasi = new Kasi();
-            pakka.sekoitaKorttiPakka();
-            LABEL2.Text = "Jäljellä olevat korit:\n" + pakka.getStackKoko().ToString();
-
-            //tyhjennä käsi, jos alotetaan uusi peli kesken pelin
-            // niin pakka resetoituu mutta käteen jää kortit
 
             //pictureBoxit yhteen listaan
             pictureBoxit.Add(pictureBox0);
@@ -80,49 +68,40 @@ namespace Kehittyneet_graafinenKorttipeli
             pictureBoxit.Add(pictureBox2);
             pictureBoxit.Add(pictureBox3);
             pictureBoxit.Add(pictureBox4);
+        }
+
+        private void peliPaalle()
+        {
+            //alustaa aina käden ja korttipakan kun aloittaa uuden pelin
+            // pakka = null;
+            pakka = new Korttipakka();
+            kasi = new Kasi();
+            pakka.sekoitaKorttiPakka();
 
             //aktivoi korttien vaihtonappi. vois ehkä myös hidettää kokonaan sen sijaan kuin enable/disable
-            button2.Enabled = true;
-
-            
-            
+            button2.Enabled = true;           
 
             //täytä käsi (5 korttia)
             while (!kasi.kasiTaynna())
             {
                 kasi.lisaaKortti(pakka.annaKortti());
             }
-            //järjestä kortit numerojärjestykseen
-           
-                       
+            //järjestä kortit numerojärjestykseen                      
             kasi.jarjestaKortit();
 
-            //asynkronin funktio jotta pääsee await Task.Delay(), jostain syystä Thread.Sleep() ei toiminut
-            tulostaKokoKasiAnimaatio();
-
-
-
-            //  for (int i = 0; i < 5; i++)
-            //   pictureBoxit.ElementAt(i).Image = Image.FromFile(kasi.getKortti(i).getTiedostoNimi());
-
-            //sulkee ohjelman kun kortteja vähän, tulee stack erroria jos kortit loppuu kesken
-            // huomasimpa että eipäs muuten menekkään
-            if (pakka.getStackKoko() < 5)
-            {
-                Application.Exit();
-            }           
-
+            //tulosta aloitustilanne  
+            tulostaKokoKasiAnimaatioAsync(); 
 
         }
 
         //tiputusvalikko credits
         private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Versio 1.0\n\nTekijat:\n\nJani Sillanpaa\nMatti Moisander\nEemil Peltonen", "Moro!");
+            MessageBox.Show("Versio 1.1\n\nTekijat:\n\nJani Sillanpaa\nMatti Moisander\nEemil Peltonen", "Moro!");
         }
 
         //koko korttirivin animointi
-        private async Task tulostaKokoKasiAnimaatio()
+        private async void tulostaKokoKasiAnimaatioAsync()
         {
 
             // ota pictureBoxeista kuvat pois, tarviikohan?
@@ -197,7 +176,7 @@ namespace Kehittyneet_graafinenKorttipeli
             //järjestetään käden kortit ja printataan se
             kasi.jarjestaKortit();
 
-            tulostaKokoKasiAnimaatio();
+            tulostaKokoKasiAnimaatioAsync();
         }
 
         /*
