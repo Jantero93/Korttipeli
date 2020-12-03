@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.teemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salaisuusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +42,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.LABEL2 = new System.Windows.Forms.Label();
+            this.kadenArvoLabel = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,11 +65,19 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.teemaToolStripMenuItem,
             this.creditsToolStripMenuItem,
             this.salaisuusToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aboutToolStripMenuItem.Text = "Misc";
+            // 
+            // teemaToolStripMenuItem
+            // 
+            this.teemaToolStripMenuItem.Name = "teemaToolStripMenuItem";
+            this.teemaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.teemaToolStripMenuItem.Text = "Teema";
+            this.teemaToolStripMenuItem.Click += new System.EventHandler(this.teemaToolStripMenuItem_Click);
             // 
             // creditsToolStripMenuItem
             // 
@@ -170,12 +180,22 @@
             this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
+            // kadenArvoLabel
+            // 
+            this.kadenArvoLabel.AutoSize = true;
+            this.kadenArvoLabel.Location = new System.Drawing.Point(388, 251);
+            this.kadenArvoLabel.Name = "kadenArvoLabel";
+            this.kadenArvoLabel.Size = new System.Drawing.Size(35, 13);
+            this.kadenArvoLabel.TabIndex = 10;
+            this.kadenArvoLabel.Text = "label1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(523, 333);
+            this.Controls.Add(this.kadenArvoLabel);
             this.Controls.Add(this.LABEL2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -218,6 +238,8 @@
         private System.Windows.Forms.ToolStripMenuItem salaisuusToolStripMenuItem;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label LABEL2;
+        private System.Windows.Forms.ToolStripMenuItem teemaToolStripMenuItem;
+        private System.Windows.Forms.Label kadenArvoLabel;
     }
 }
 

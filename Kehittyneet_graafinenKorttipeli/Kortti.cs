@@ -21,9 +21,7 @@ namespace Kehittyneet_graafinenKorttipeli
         public Kortti (int arvo_parametri, MAA kortin_maa_parametri)
         {
             if (arvo_parametri < 2 || arvo_parametri > 14)
-            {
                 throw new ArgumentException("Kortin arvo pitaa olla 2 - 14 (14 == ässä)");
-            }
 
             switch (kortin_maa_parametri)
             {
@@ -47,7 +45,7 @@ namespace Kehittyneet_graafinenKorttipeli
             kortin_maa = kortin_maa_parametri;
             // tiedosto nimet muotoa cards_ + arvo + maa 
             // ristit 2-14, ruudut (kortin arvo + 13)  15-27, (kortin arvo + 26) hertat 28-40, (kortin arvo + 39) padat 41-53
-            string cardT = "cards_";          
+            const string cardT = "cards_";          
 
             switch (kortin_maa)
             {
