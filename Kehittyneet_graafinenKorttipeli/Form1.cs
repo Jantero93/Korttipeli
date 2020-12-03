@@ -45,15 +45,17 @@ namespace Kehittyneet_graafinenKorttipeli
 
 
 
+        List<String> korttienTeemat = new List<String>();
+        int valittuTeemaIndex = 0;
         //korttien takapuolet
+        string korttiVaarinpain = "cards_59_backs.bmp";
         // const string korttiVaarinpain = "cards_53_backs.bmp"; 
-            const string korttiVaarinpain = "cards_59_backs.bmp";
         // const string korttiVaarinpain = "cards_54_backs.bmp";
         //  const string korttiVaarinpain = "cards_57_backs.bmp";
         //  const string korttiVaarinpain = "cards_60_backs.bmp";
         //  const string korttiVaarinpain = "cards_62_backs.bmp";
         //  const string korttiVaarinpain = "cards_65_backs.bmp";
-         // const string korttiVaarinpain = "cards_63_backs.bmp";
+        // const string korttiVaarinpain = "cards_63_backs.bmp";
 
         //pictureBoxit listassa
         List<PictureBox> pictureBoxit = new List<PictureBox>();
@@ -70,6 +72,7 @@ namespace Kehittyneet_graafinenKorttipeli
             InitializeComponent();
             button2.Enabled = false;
             LABEL2.Text = "";
+            kadenArvoLabel.Text = "";
 
             //pictureBoxit yhteen listaan
             pictureBoxit.Add(pictureBox0);
@@ -77,6 +80,11 @@ namespace Kehittyneet_graafinenKorttipeli
             pictureBoxit.Add(pictureBox2);
             pictureBoxit.Add(pictureBox3);
             pictureBoxit.Add(pictureBox4);
+            // korttien eri teemat listaan
+            korttienTeemat.Add("cards_59_backs.bmp");
+            korttienTeemat.Add("cards_53_backs.bmp");
+            korttienTeemat.Add("cards_57_backs.bmp");
+            korttienTeemat.Add("cards_65_backs.bmp");
         }
 
         private void peliPaalle()
@@ -86,16 +94,36 @@ namespace Kehittyneet_graafinenKorttipeli
             pakka = new Korttipakka();
             kasi = new Kasi();
             pakka.sekoitaKorttiPakka();
+
+            //DEBUGGAUSTA
+            Kasi testikasi = new Kasi();
+            Kortti kort2 = new Kortti(8, MAA.PATA);
+            Kortti kort3 = new Kortti(7, MAA.HERTTA);
+            Kortti kort4 = new Kortti(14, MAA.RISTI);
+            Kortti kort5 = new Kortti(14, MAA.RISTI);
+            Kortti kort6 = new Kortti(14, MAA.PATA);
+            testikasi.lisaaKortti(kort2);
+            testikasi.lisaaKortti(kort3);
+            testikasi.lisaaKortti(kort4);
+            testikasi.lisaaKortti(kort5);
+            testikasi.lisaaKortti(kort6);
+            testikasi.jarjestaKortit();
+            string testi = testikasi.getKadenArvo();
+            //DEBUGGAUSTA
+
             //peli käyntiin
             peliKaynnissa = true;
             //aseta vuorojen määrä
-            vuorojaJaljella = 3;
+            vuorojaJaljella = 9;
 
             //disabloi uusi peli nappi
             button1.Enabled = false;
 
             //aktivoi korttien vaihtonappi. vois ehkä myös hidettää kokonaan sen sijaan kuin enable/disable
-            button2.Enabled = true;           
+            button2.Enabled = true;
+
+            //tyhjennä käden arvo label
+            kadenArvoLabel.Text = "";
 
             //täytä käsi (5 korttia)
             while (!kasi.kasiTaynna())
@@ -107,7 +135,6 @@ namespace Kehittyneet_graafinenKorttipeli
 
             //tulosta aloitustilanne  
             tulostaKokoKasiAnimaatioAsync(); 
-
         }
 
         //tiputusvalikko credits
@@ -119,6 +146,7 @@ namespace Kehittyneet_graafinenKorttipeli
         //koko korttirivin animointi
         private async void tulostaKokoKasiAnimaatioAsync()
         {
+            LABEL2.Text = "Vaihtoja jäljellä:\n" + vuorojaJaljella.ToString();
 
             // ota pictureBoxeista kuvat pois, tarviikohan?
             for (int i = 0; i < pictureBoxit.Count(); i++)
@@ -131,7 +159,8 @@ namespace Kehittyneet_graafinenKorttipeli
                 await Task.Delay(odotusaika);
             }
 
-            LABEL2.Text = "Vaihtoja jäljellä:\n" + vuorojaJaljella.ToString();
+           
+            
 
             //käännä kaikki kortit oikeinpäin
             for (int i = 0; i < pictureBoxit.Count(); i++)
@@ -139,8 +168,9 @@ namespace Kehittyneet_graafinenKorttipeli
                 pictureBoxit.ElementAt(i).Image = Image.FromFile(kasi.getKortti(i).getTiedostoNimi());
                 await Task.Delay(odotusaika);
             }
-            //päivitä teksti montako korttia stäkissä
-            
+            //käden arvo
+            kadenArvoLabel.Text = "Käden arvo:\n" + kasi.getKadenArvo();
+
         }
 
         //menupalkin quit
@@ -203,10 +233,11 @@ namespace Kehittyneet_graafinenKorttipeli
 
             //jos vuoroja jäljellä 0 --> esitä käden vahvuus, enabloi uusi peli nappi ja disabloi vaihtonappi. 
             //pitäisi varmaan tulostaa myös mahdollinen käden vahvuus
-            if (vuorojaJaljella == 0) { 
-            peliKaynnissa = false;
-            button1.Enabled = true;
-            button2.Enabled = false;
+            if (vuorojaJaljella == 0)
+            { 
+                peliKaynnissa = false;
+                button1.Enabled = true;
+                button2.Enabled = false;
             }
         }
 
@@ -253,7 +284,6 @@ namespace Kehittyneet_graafinenKorttipeli
                 p_box.InitialImage = null;
                 p_box.Image = Image.FromFile(korttiVaarinpain);
                 kasi.getKortti(index).kaannaKortti();
-
             }
             else
             {
@@ -272,6 +302,16 @@ namespace Kehittyneet_graafinenKorttipeli
         private void LABEL2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void teemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            valittuTeemaIndex++;
+            if (valittuTeemaIndex == korttienTeemat.Count()) 
+                valittuTeemaIndex = 0;
+
+            korttiVaarinpain = korttienTeemat.ElementAt(valittuTeemaIndex);
+            tulostaKokoKasiAnimaatioAsync();            
         }
     }
 
