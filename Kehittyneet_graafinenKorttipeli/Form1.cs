@@ -63,7 +63,7 @@ namespace Kehittyneet_graafinenKorttipeli
         //Lista jossa pidetään vaihdettavien korttien indeksi, ei tarvisi ehkä olla globaali
         List<int> vaihdettavatKortit = new List<int>();
         //"animaation" nopeus (ms)
-        const int odotusaika = 50;
+        const int odotusaika = 80;
 
 
 
@@ -114,7 +114,7 @@ namespace Kehittyneet_graafinenKorttipeli
             //peli käyntiin
             peliKaynnissa = true;
             //aseta vuorojen määrä
-            vuorojaJaljella = 10;
+            vuorojaJaljella = 3;
 
             //disabloi uusi peli nappi
             button1.Enabled = false;
