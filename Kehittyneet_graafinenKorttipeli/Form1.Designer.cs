@@ -58,7 +58,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(523, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(574, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -172,29 +172,32 @@
             // LABEL2
             // 
             this.LABEL2.AutoSize = true;
-            this.LABEL2.Location = new System.Drawing.Point(392, 201);
+            this.LABEL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LABEL2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.LABEL2.Location = new System.Drawing.Point(381, 201);
             this.LABEL2.Name = "LABEL2";
-            this.LABEL2.Size = new System.Drawing.Size(58, 13);
+            this.LABEL2.Size = new System.Drawing.Size(27, 20);
             this.LABEL2.TabIndex = 9;
-            this.LABEL2.Text = "gdfgdfgdfg";
-            this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LABEL2.Text = "10";
             this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
             // kadenArvoLabel
             // 
             this.kadenArvoLabel.AutoSize = true;
-            this.kadenArvoLabel.Location = new System.Drawing.Point(388, 251);
+            this.kadenArvoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kadenArvoLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.kadenArvoLabel.Location = new System.Drawing.Point(381, 260);
             this.kadenArvoLabel.Name = "kadenArvoLabel";
-            this.kadenArvoLabel.Size = new System.Drawing.Size(35, 13);
+            this.kadenArvoLabel.Size = new System.Drawing.Size(27, 20);
             this.kadenArvoLabel.TabIndex = 10;
-            this.kadenArvoLabel.Text = "label1";
+            this.kadenArvoLabel.Text = "11";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(523, 333);
+            this.ClientSize = new System.Drawing.Size(574, 359);
             this.Controls.Add(this.kadenArvoLabel);
             this.Controls.Add(this.LABEL2);
             this.Controls.Add(this.button2);

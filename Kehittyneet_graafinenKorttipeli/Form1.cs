@@ -63,7 +63,7 @@ namespace Kehittyneet_graafinenKorttipeli
         //Lista jossa pidetään vaihdettavien korttien indeksi, ei tarvisi ehkä olla globaali
         List<int> vaihdettavatKortit = new List<int>();
         //"animaation" nopeus (ms)
-        const int odotusaika = 100;
+        const int odotusaika = 50;
 
 
 
@@ -114,7 +114,7 @@ namespace Kehittyneet_graafinenKorttipeli
             //peli käyntiin
             peliKaynnissa = true;
             //aseta vuorojen määrä
-            vuorojaJaljella = 9;
+            vuorojaJaljella = 10;
 
             //disabloi uusi peli nappi
             button1.Enabled = false;
@@ -146,7 +146,7 @@ namespace Kehittyneet_graafinenKorttipeli
         //koko korttirivin animointi
         private async void tulostaKokoKasiAnimaatioAsync()
         {
-            LABEL2.Text = "Vaihtoja jäljellä:\n" + vuorojaJaljella.ToString();
+            LABEL2.Text = "Vaihtoja jäljellä:" + vuorojaJaljella.ToString();
 
             // ota pictureBoxeista kuvat pois, tarviikohan?
             for (int i = 0; i < pictureBoxit.Count(); i++)
@@ -169,7 +169,7 @@ namespace Kehittyneet_graafinenKorttipeli
                 await Task.Delay(odotusaika);
             }
             //käden arvo
-            kadenArvoLabel.Text = "Käden arvo:\n" + kasi.getKadenArvo();
+            kadenArvoLabel.Text = "Käden arvo: " + kasi.getKadenArvo();
 
         }
 

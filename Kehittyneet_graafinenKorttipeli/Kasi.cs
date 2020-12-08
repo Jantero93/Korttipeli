@@ -60,7 +60,7 @@ namespace Kehittyneet_graafinenKorttipeli
         public string getKadenArvo()
         {
             //kädet on aina pienimmästä suurimpaan
-            string kadenArvo = "Ei mitään";
+        //    string kadenArvo = "Ei mitään";
            
 
             //värisuora
