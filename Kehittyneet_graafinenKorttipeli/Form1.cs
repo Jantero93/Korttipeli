@@ -288,7 +288,7 @@ namespace Kehittyneet_graafinenKorttipeli
          oisko parempaa toteutusta? 
          */
         private void pictureBox0_Click(object sender, EventArgs e)
-        {
+        {          
             int index = 0;
             korttienVaihto(pictureBoxit.ElementAt(index), index);
         }
@@ -349,7 +349,14 @@ namespace Kehittyneet_graafinenKorttipeli
 
         //klikki funktioille yhteinen toteutus, sama järjestys picboxien indeksit ja käden korttien indeksit ettei mee sekaisin
         private void korttienVaihto(PictureBox p_box, int index)
-        {   // jos kortti oikeinpäin
+        {   
+            //jos ei vaihtoja jäljellä, ei voi vaihtaa enää
+            if (vuorojaJaljella == 0)
+            {
+                return;
+            }
+            
+            // jos kortti oikeinpäin
             if (kasi.getKortti(index).korttiOikeinPain())
             {
                 //picBox tyhjäksi ja kortti väärinpäin kuva, aseta kortti olioon booleani
@@ -366,7 +373,14 @@ namespace Kehittyneet_graafinenKorttipeli
         }
 
         private void korttienVaihto2(PictureBox p_box, int index)
-        {   // jos kortti oikeinpäin
+        {
+            //jos ei vaihtoja jäljellä, ei voi vaihtaa enää
+            if (vuorojaJaljella == 0)
+            {
+                return;
+            }
+
+            // jos kortti oikeinpäin
             if (kasi2.getKortti(index).korttiOikeinPain())
             {
                 //picBox tyhjäksi ja kortti väärinpäin kuva, aseta kortti olioon booleani
