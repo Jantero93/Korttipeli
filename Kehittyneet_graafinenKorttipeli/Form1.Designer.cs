@@ -43,12 +43,23 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LABEL2 = new System.Windows.Forms.Label();
             this.kadenArvoLabel = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.kadenArvoLabel2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -58,7 +69,7 @@
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(574, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(643, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -149,7 +160,7 @@
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 201);
+            this.button1.Location = new System.Drawing.Point(45, 295);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(142, 64);
             this.button1.TabIndex = 6;
@@ -161,7 +172,7 @@
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(199, 201);
+            this.button2.Location = new System.Drawing.Point(199, 295);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(148, 64);
             this.button2.TabIndex = 7;
@@ -172,11 +183,11 @@
             // LABEL2
             // 
             this.LABEL2.AutoSize = true;
-            this.LABEL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LABEL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.LABEL2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.LABEL2.Location = new System.Drawing.Point(381, 201);
+            this.LABEL2.Location = new System.Drawing.Point(397, 318);
             this.LABEL2.Name = "LABEL2";
-            this.LABEL2.Size = new System.Drawing.Size(27, 20);
+            this.LABEL2.Size = new System.Drawing.Size(34, 25);
             this.LABEL2.TabIndex = 9;
             this.LABEL2.Text = "10";
             this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
@@ -184,20 +195,82 @@
             // kadenArvoLabel
             // 
             this.kadenArvoLabel.AutoSize = true;
-            this.kadenArvoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.kadenArvoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.kadenArvoLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.kadenArvoLabel.Location = new System.Drawing.Point(381, 260);
+            this.kadenArvoLabel.Location = new System.Drawing.Point(467, 86);
             this.kadenArvoLabel.Name = "kadenArvoLabel";
-            this.kadenArvoLabel.Size = new System.Drawing.Size(27, 20);
+            this.kadenArvoLabel.Size = new System.Drawing.Size(34, 25);
             this.kadenArvoLabel.TabIndex = 10;
             this.kadenArvoLabel.Text = "11";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Location = new System.Drawing.Point(45, 176);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox5.TabIndex = 11;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Location = new System.Drawing.Point(122, 176);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox6.TabIndex = 12;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Location = new System.Drawing.Point(199, 176);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox7.TabIndex = 13;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Location = new System.Drawing.Point(276, 176);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox8.TabIndex = 14;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Location = new System.Drawing.Point(353, 176);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox9.TabIndex = 15;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            // 
+            // kadenArvoLabel2
+            // 
+            this.kadenArvoLabel2.AutoSize = true;
+            this.kadenArvoLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.kadenArvoLabel2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.kadenArvoLabel2.Location = new System.Drawing.Point(467, 207);
+            this.kadenArvoLabel2.Name = "kadenArvoLabel2";
+            this.kadenArvoLabel2.Size = new System.Drawing.Size(34, 25);
+            this.kadenArvoLabel2.TabIndex = 16;
+            this.kadenArvoLabel2.Text = "11";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(574, 359);
+            this.ClientSize = new System.Drawing.Size(643, 444);
+            this.Controls.Add(this.kadenArvoLabel2);
+            this.Controls.Add(this.pictureBox9);
+            this.Controls.Add(this.pictureBox8);
+            this.Controls.Add(this.pictureBox7);
+            this.Controls.Add(this.pictureBox6);
+            this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.kadenArvoLabel);
             this.Controls.Add(this.LABEL2);
             this.Controls.Add(this.button2);
@@ -221,6 +294,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,6 +321,12 @@
         private System.Windows.Forms.Label LABEL2;
         private System.Windows.Forms.ToolStripMenuItem teemaToolStripMenuItem;
         private System.Windows.Forms.Label kadenArvoLabel;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox7;
+        private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Label kadenArvoLabel2;
     }
 }
 
