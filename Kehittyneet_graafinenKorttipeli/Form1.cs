@@ -42,7 +42,7 @@ namespace Kehittyneet_graafinenKorttipeli
         Korttipakka pakka = new Korttipakka();
         int vuorojaJaljella = 0;
         // ei käytössä
-        bool peliKaynnissa = false;
+        bool peliKaynnissa;
 
 
 
@@ -396,17 +396,7 @@ namespace Kehittyneet_graafinenKorttipeli
             }
         }
 
-        // en oo uskaltanu poistaa ku visual studio herjaa
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LABEL2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void teemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             valittuTeemaIndex++;
@@ -417,7 +407,10 @@ namespace Kehittyneet_graafinenKorttipeli
             tulostaKokoKasiAnimaatioAsync();            
         }
 
-      
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

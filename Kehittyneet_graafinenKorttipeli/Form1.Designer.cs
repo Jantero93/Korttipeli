@@ -64,12 +64,14 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(643, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(857, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -80,78 +82,83 @@
             this.creditsToolStripMenuItem,
             this.salaisuusToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(51, 24);
             this.aboutToolStripMenuItem.Text = "Misc";
             // 
             // teemaToolStripMenuItem
             // 
             this.teemaToolStripMenuItem.Name = "teemaToolStripMenuItem";
-            this.teemaToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.teemaToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.teemaToolStripMenuItem.Text = "Teema";
             this.teemaToolStripMenuItem.Click += new System.EventHandler(this.teemaToolStripMenuItem_Click);
             // 
             // creditsToolStripMenuItem
             // 
             this.creditsToolStripMenuItem.Name = "creditsToolStripMenuItem";
-            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.creditsToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.creditsToolStripMenuItem.Text = "Credits";
             this.creditsToolStripMenuItem.Click += new System.EventHandler(this.creditsToolStripMenuItem_Click);
             // 
             // salaisuusToolStripMenuItem
             // 
             this.salaisuusToolStripMenuItem.Name = "salaisuusToolStripMenuItem";
-            this.salaisuusToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
+            this.salaisuusToolStripMenuItem.Size = new System.Drawing.Size(144, 26);
             this.salaisuusToolStripMenuItem.Text = "Salaisuus";
             this.salaisuusToolStripMenuItem.Click += new System.EventHandler(this.salaisuusToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(42, 20);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // pictureBox0
             // 
-            this.pictureBox0.Location = new System.Drawing.Point(45, 56);
+            this.pictureBox0.Location = new System.Drawing.Point(60, 69);
+            this.pictureBox0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox0.Name = "pictureBox0";
-            this.pictureBox0.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox0.Size = new System.Drawing.Size(95, 118);
             this.pictureBox0.TabIndex = 1;
             this.pictureBox0.TabStop = false;
             this.pictureBox0.Click += new System.EventHandler(this.pictureBox0_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(122, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(163, 69);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox1.Size = new System.Drawing.Size(95, 118);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(199, 56);
+            this.pictureBox2.Location = new System.Drawing.Point(265, 69);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox2.Size = new System.Drawing.Size(95, 118);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(276, 56);
+            this.pictureBox3.Location = new System.Drawing.Point(368, 69);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox3.Size = new System.Drawing.Size(95, 118);
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(353, 56);
+            this.pictureBox4.Location = new System.Drawing.Point(471, 69);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox4.Size = new System.Drawing.Size(95, 118);
             this.pictureBox4.TabIndex = 5;
             this.pictureBox4.TabStop = false;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
@@ -160,9 +167,10 @@
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 295);
+            this.button1.Location = new System.Drawing.Point(60, 363);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(142, 64);
+            this.button1.Size = new System.Drawing.Size(189, 79);
             this.button1.TabIndex = 6;
             this.button1.Text = "Uusi peli";
             this.button1.UseVisualStyleBackColor = true;
@@ -172,9 +180,10 @@
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(199, 295);
+            this.button2.Location = new System.Drawing.Point(265, 363);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(148, 64);
+            this.button2.Size = new System.Drawing.Size(197, 79);
             this.button2.TabIndex = 7;
             this.button2.Text = "Vaihda kortit";
             this.button2.UseVisualStyleBackColor = true;
@@ -185,65 +194,71 @@
             this.LABEL2.AutoSize = true;
             this.LABEL2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.LABEL2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.LABEL2.Location = new System.Drawing.Point(397, 318);
+            this.LABEL2.Location = new System.Drawing.Point(529, 391);
+            this.LABEL2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LABEL2.Name = "LABEL2";
-            this.LABEL2.Size = new System.Drawing.Size(34, 25);
+            this.LABEL2.Size = new System.Drawing.Size(41, 29);
             this.LABEL2.TabIndex = 9;
             this.LABEL2.Text = "10";
-            this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
             // kadenArvoLabel
             // 
             this.kadenArvoLabel.AutoSize = true;
             this.kadenArvoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.kadenArvoLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.kadenArvoLabel.Location = new System.Drawing.Point(467, 86);
+            this.kadenArvoLabel.Location = new System.Drawing.Point(623, 106);
+            this.kadenArvoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kadenArvoLabel.Name = "kadenArvoLabel";
-            this.kadenArvoLabel.Size = new System.Drawing.Size(34, 25);
+            this.kadenArvoLabel.Size = new System.Drawing.Size(41, 29);
             this.kadenArvoLabel.TabIndex = 10;
             this.kadenArvoLabel.Text = "11";
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(45, 176);
+            this.pictureBox5.Location = new System.Drawing.Point(60, 217);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox5.Size = new System.Drawing.Size(95, 118);
             this.pictureBox5.TabIndex = 11;
             this.pictureBox5.TabStop = false;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(122, 176);
+            this.pictureBox6.Location = new System.Drawing.Point(163, 217);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox6.Size = new System.Drawing.Size(95, 118);
             this.pictureBox6.TabIndex = 12;
             this.pictureBox6.TabStop = false;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(199, 176);
+            this.pictureBox7.Location = new System.Drawing.Point(265, 217);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox7.Size = new System.Drawing.Size(95, 118);
             this.pictureBox7.TabIndex = 13;
             this.pictureBox7.TabStop = false;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(276, 176);
+            this.pictureBox8.Location = new System.Drawing.Point(368, 217);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox8.Size = new System.Drawing.Size(95, 118);
             this.pictureBox8.TabIndex = 14;
             this.pictureBox8.TabStop = false;
             this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(353, 176);
+            this.pictureBox9.Location = new System.Drawing.Point(471, 217);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(71, 96);
+            this.pictureBox9.Size = new System.Drawing.Size(95, 118);
             this.pictureBox9.TabIndex = 15;
             this.pictureBox9.TabStop = false;
             this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
@@ -253,18 +268,19 @@
             this.kadenArvoLabel2.AutoSize = true;
             this.kadenArvoLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.kadenArvoLabel2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.kadenArvoLabel2.Location = new System.Drawing.Point(467, 207);
+            this.kadenArvoLabel2.Location = new System.Drawing.Point(623, 255);
+            this.kadenArvoLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.kadenArvoLabel2.Name = "kadenArvoLabel2";
-            this.kadenArvoLabel2.Size = new System.Drawing.Size(34, 25);
+            this.kadenArvoLabel2.Size = new System.Drawing.Size(41, 29);
             this.kadenArvoLabel2.TabIndex = 16;
             this.kadenArvoLabel2.Text = "11";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(643, 444);
+            this.ClientSize = new System.Drawing.Size(857, 546);
             this.Controls.Add(this.kadenArvoLabel2);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.pictureBox8);
@@ -283,10 +299,12 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.ShowIcon = false;
             this.Text = "Korttipeli";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox0)).EndInit();
