@@ -77,50 +77,6 @@ namespace Kehittyneet_graafinenKorttipeli
 
         public override string ToString()
         {
-            // vanha turha toteutus
-            /*
-            string tulosta_arvo;
-            string tulosta_maa;
-
-            if (arvo == 14)
-                tulosta_arvo = "A";
-            else
-                tulosta_arvo = arvo.ToString();
-
-            switch (kortin_maa)
-            {
-                case MAA.RISTI:
-                    tulosta_maa = "RISTI";
-                    break;
-
-                case MAA.RUUTU:
-                    tulosta_maa = "RUUTU";
-                    break;
-
-                case MAA.HERTTA:
-                    tulosta_maa = "HERTTA";
-                    break;
-
-                case MAA.PATA:
-                    tulosta_maa = "PATA";
-                    break;
-
-                default:
-                    tulosta_maa = "niin birusti erroria";
-                    break;
-            }
-
-            //lisää tulosta_maahan välejä jotta se on aina 6 merkkiä pitkä
-            if (tulosta_maa.Length < 6)
-                while (tulosta_maa.Length < 6)
-                    tulosta_maa += " ";
-
-            //lisää väli jotta kaikki arvot samanpituisia
-            if (tulosta_arvo.Length == 1)
-                tulosta_arvo += " ";
-
-            return tulosta_maa + " " + tulosta_arvo;          
-            */
             return kuvanTiedosto;
         }
 

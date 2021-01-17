@@ -116,6 +116,7 @@ namespace Kehittyneet_graafinenKorttipeli
 
             if (onkoTama)
                 return "Väri";
+
             //suora
             onkoTama = true;
             for (int i = 0; i < kasi.Count()-1; i++)
@@ -149,7 +150,7 @@ namespace Kehittyneet_graafinenKorttipeli
 
             //kaksi paria
             samojaKortteja = 0;
-            onkoTama = false; //jos tulee yks pari -> true ja toinen pari katotaan vertailulla
+            onkoTama = false; //jos tulee yksi pari -> true ja toinen pari katotaan vertailulla
             for (int i = 0; i < kasi.Count() - 1; i++)
             {
                 if (kasi.ElementAt(i).getArvo() == kasi.ElementAt(i + 1).getArvo())
@@ -184,8 +185,7 @@ namespace Kehittyneet_graafinenKorttipeli
 
                 default:
                     return kasi.ElementAt(4).getArvo().ToString() + " hai";
-            }           
-
+            }
         }
     }
 }

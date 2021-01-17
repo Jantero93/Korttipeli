@@ -33,39 +33,35 @@ namespace Kehittyneet_graafinenKorttipeli
             kasi olion indeksointi muuttuu kun poistaa kortin kädestä, mikä ei ole viimeisessä indeksissä
 
             */
+                 
 
-      
-
-        //globaaleja
-        Kasi kasi = new Kasi();
-        Kasi kasi2 = new Kasi();
-        Korttipakka pakka = new Korttipakka();
-        int vuorojaJaljella = 0;
-        // ei käytössä
-        bool peliKaynnissa = false;
-
-
+        //globaaleja   
+        Pokeri pokeripeli = new Pokeri();
+        Kasi pelaaja1 = new Kasi();
+        Kasi pelaaja2 = new Kasi();
 
         List<String> korttienTeemat = new List<String>();
         int valittuTeemaIndex = 0;
         //korttien takapuolet
         string korttiVaarinpain = "cards_59_backs.bmp";
+
+        //teemoja
         // const string korttiVaarinpain = "cards_53_backs.bmp"; 
         // const string korttiVaarinpain = "cards_54_backs.bmp";
-        //  const string korttiVaarinpain = "cards_57_backs.bmp";
-        //  const string korttiVaarinpain = "cards_60_backs.bmp";
-        //  const string korttiVaarinpain = "cards_62_backs.bmp";
-        //  const string korttiVaarinpain = "cards_65_backs.bmp";
+        // const string korttiVaarinpain = "cards_57_backs.bmp";
+        // const string korttiVaarinpain = "cards_60_backs.bmp";
+        // const string korttiVaarinpain = "cards_62_backs.bmp";
+        // const string korttiVaarinpain = "cards_65_backs.bmp";
         // const string korttiVaarinpain = "cards_63_backs.bmp";
 
         //pictureBoxit listassa
-        List<PictureBox> pictureBoxit = new List<PictureBox>();
-        List<PictureBox> pictureBoxit2 = new List<PictureBox>();
+        List<PictureBox> PicBoxitPelaaja1 = new List<PictureBox>();
+        List<PictureBox> PicBoxitPelaaja2 = new List<PictureBox>();
 
         //Lista jossa pidetään vaihdettavien korttien indeksi, ei tarvisi ehkä olla globaali
         List<int> vaihdettavatKortit = new List<int>();
         //"animaation" nopeus (ms)
-        const int odotusaika = 120;
+        const int odotusaika = 100;
 
 
 
@@ -78,18 +74,18 @@ namespace Kehittyneet_graafinenKorttipeli
             kadenArvoLabel2.Text = "";
 
             //pictureBoxit yhteen listaan (pelaaja 1)
-            pictureBoxit.Add(pictureBox0);
-            pictureBoxit.Add(pictureBox1);
-            pictureBoxit.Add(pictureBox2);
-            pictureBoxit.Add(pictureBox3);
-            pictureBoxit.Add(pictureBox4);
+            PicBoxitPelaaja1.Add(pictureBox0);
+            PicBoxitPelaaja1.Add(pictureBox1);
+            PicBoxitPelaaja1.Add(pictureBox2);
+            PicBoxitPelaaja1.Add(pictureBox3);
+            PicBoxitPelaaja1.Add(pictureBox4);
 
             //pictureboxit listaan pelaaja 2
-            pictureBoxit2.Add(pictureBox5);
-            pictureBoxit2.Add(pictureBox6);
-            pictureBoxit2.Add(pictureBox7);
-            pictureBoxit2.Add(pictureBox8);
-            pictureBoxit2.Add(pictureBox9);
+            PicBoxitPelaaja2.Add(pictureBox5);
+            PicBoxitPelaaja2.Add(pictureBox6);
+            PicBoxitPelaaja2.Add(pictureBox7);
+            PicBoxitPelaaja2.Add(pictureBox8);
+            PicBoxitPelaaja2.Add(pictureBox9);
 
             // korttien eri teemat listaan
             korttienTeemat.Add("cards_59_backs.bmp");
@@ -102,31 +98,12 @@ namespace Kehittyneet_graafinenKorttipeli
         {
             //alustaa aina käden ja korttipakan kun aloittaa uuden pelin
             // pakka = null;
-            pakka = new Korttipakka();
-            kasi = new Kasi();
-            kasi2 = new Kasi();
-            pakka.sekoitaKorttiPakka();
-            /*
-            //DEBUGGAUSTA
-            Kasi testikasi = new Kasi();
-            Kortti kort2 = new Kortti(8, MAA.PATA);
-            Kortti kort3 = new Kortti(7, MAA.HERTTA);
-            Kortti kort4 = new Kortti(14, MAA.RISTI);
-            Kortti kort5 = new Kortti(14, MAA.RISTI);
-            Kortti kort6 = new Kortti(14, MAA.PATA);
-            testikasi.lisaaKortti(kort2);
-            testikasi.lisaaKortti(kort3);
-            testikasi.lisaaKortti(kort4);
-            testikasi.lisaaKortti(kort5);
-            testikasi.lisaaKortti(kort6);
-            testikasi.jarjestaKortit();
-            string testi = testikasi.getKadenArvo();
-            //DEBUGGAUSTA
-            */
-            //peli käyntiin
-            peliKaynnissa = true;
-            //aseta vuorojen määrä
-            vuorojaJaljella = 3;
+            pokeripeli = new Pokeri();
+            pelaaja1 = new Kasi();
+            pelaaja2 = new Kasi();
+
+            //lisätään pelaajille kortit
+            pokeripeli.kaynnistaPeli(pelaaja1, pelaaja2);            
 
             //disabloi uusi peli nappi
             button1.Enabled = false;
@@ -136,17 +113,7 @@ namespace Kehittyneet_graafinenKorttipeli
 
             //tyhjennä käden arvo label
             kadenArvoLabel.Text = "";
-            kadenArvoLabel2.Text = "";
-
-            //täytä käsi (5 korttia)
-            while (!kasi.kasiTaynna())
-            {
-                kasi.lisaaKortti(pakka.annaKortti());
-                kasi2.lisaaKortti(pakka.annaKortti());
-            }
-            //järjestä kortit numerojärjestykseen                      
-            kasi.jarjestaKortit();
-            kasi2.jarjestaKortit();
+            kadenArvoLabel2.Text = "";                     
 
             //tulosta aloitustilanne  
             tulostaKokoKasiAnimaatioAsync(); 
@@ -155,40 +122,40 @@ namespace Kehittyneet_graafinenKorttipeli
         //tiputusvalikko credits
         private void creditsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Versio 2.0\n\nTekijat:\n\nJani Sillanpaa\nMatti Moisander\nEemil Peltonen", "Moro!");
+            MessageBox.Show("Versio 2.0\n\nTekijat:\n\nJani Sillanpaa", "Moro!");
         }
 
         //koko korttirivin animointi
         private async void tulostaKokoKasiAnimaatioAsync()
-        {
-            LABEL2.Text = "Vaihtoja jäljellä:" + vuorojaJaljella.ToString();
+        {            
+            LABEL2.Text = "Vaihtoja jäljellä:" + pokeripeli.GetVuorojaJaljella().ToString(); 
 
             // ota pictureBoxeista kuvat pois, tarviikohan?
-            for (int i = 0; i < pictureBoxit.Count(); i++)
+            for (int i = 0; i < PicBoxitPelaaja1.Count(); i++)
             { 
-                pictureBoxit.ElementAt(i).InitialImage = null;
-                pictureBoxit2.ElementAt(i).InitialImage = null;
+                PicBoxitPelaaja1.ElementAt(i).InitialImage = null;
+                PicBoxitPelaaja2.ElementAt(i).InitialImage = null;
             }
 
             //käännä kaikki kortit väärinpäin
             for (int i = 0; i < 5; i++)
             {
-                pictureBoxit.ElementAt(i).Image = Image.FromFile(korttiVaarinpain);
-                pictureBoxit2.ElementAt(i).Image = Image.FromFile(korttiVaarinpain);
+                PicBoxitPelaaja1.ElementAt(i).Image = Image.FromFile(korttiVaarinpain);
+                PicBoxitPelaaja2.ElementAt(i).Image = Image.FromFile(korttiVaarinpain);
                 await Task.Delay(odotusaika);
             }
             
             //käännä kaikki kortit oikeinpäin
-            for (int i = 0; i < pictureBoxit.Count(); i++)
+            for (int i = 0; i < PicBoxitPelaaja1.Count(); i++)
             {
-                pictureBoxit.ElementAt(i).Image = Image.FromFile(kasi.getKortti(i).getTiedostoNimi());
-                pictureBoxit2.ElementAt(i).Image = Image.FromFile(kasi2.getKortti(i).getTiedostoNimi());
+                PicBoxitPelaaja1.ElementAt(i).Image = Image.FromFile(pokeripeli.getKortinTiedostonimi(pelaaja1,i));
+
+                PicBoxitPelaaja2.ElementAt(i).Image = Image.FromFile(pokeripeli.getKortinTiedostonimi(pelaaja2,i));
                 await Task.Delay(odotusaika);
             }
             //käden arvo
-            kadenArvoLabel.Text = "Pelaaja 1:\n " + kasi.getKadenArvo();
-            kadenArvoLabel2.Text = "Pelaaja 2:\n " + kasi2.getKadenArvo();
-
+            kadenArvoLabel.Text = "Pelaaja 1:\n" + pelaaja1.getKadenArvo();
+            kadenArvoLabel2.Text = "Pelaaja 2:\n" + pelaaja2.getKadenArvo();
         }
 
         //menupalkin quit
@@ -212,72 +179,20 @@ namespace Kehittyneet_graafinenKorttipeli
         // jos kortti väärinpäin, kortti vaihdetaan. Eli vaihda kortit painike
         private void button2_Click(object sender, EventArgs e)
         {
-            /* paskaa koodia kun koitin ettiä bugia */
-            //listaan kortit jotka väärinpäin ja vaihdetaan ne
-            List<int> vaihdettavatIndeksit = new List<int>();
-            List<int> vaihdettavatIndeksit2 = new List<int>();
-
             //vähennä jäljellä olevia vuoroja
-            vuorojaJaljella--;
-
-            
+            pokeripeli.vahennaJaljellaolevariaVuoroja();
 
             // katotaan vaihdettavat kortit suurimmasta pienimpää, muuten indeksointi menee rikki (((menee joka tapauksessa, ei väliä)))
-            for (int i = 4; i >= 0; i--) { 
-
-                if (kasi.getKortti(i).korttiOikeinPain() == false)
-                {
-                    vaihdettavatIndeksit.Add(i);
-                }
-                if (kasi2.getKortti(i).korttiOikeinPain() == false)
-                {
-                    vaihdettavatIndeksit2.Add(i);
-                }
-            }
-
-            int count = 0;
-            int temp = -1;
-            int count2 = 0;
-            int temp2 = -1;
-
-            //ota vaihdettavat kortit pois
-            for (int i = 0; i < vaihdettavatIndeksit.Count(); i++)
-            {
-                temp = vaihdettavatIndeksit.ElementAt(i);
-                kasi.otaKortti(temp);
-                count++;
-            }
-
-            for (int i = 0; i < vaihdettavatIndeksit2.Count(); i++)
-            {
-                temp2 = vaihdettavatIndeksit2.ElementAt(i);
-                kasi2.otaKortti(temp2);
-                count2++;
-            }
-
-            //lisätään saman verran kortteja
-            for (int i = 0; i < count; i++)
-            {
-                kasi.lisaaKortti(pakka.annaKortti());
-            }
-
-            for (int i = 0; i < count2; i++)
-            {
-                kasi2.lisaaKortti(pakka.annaKortti());
-            }
-                                          
-            //järjestetään käden kortit ja printataan se
-            kasi.jarjestaKortit();
-            kasi2.jarjestaKortit();
+            pokeripeli.vaihdaKortit(pelaaja1);
+            pokeripeli.vaihdaKortit(pelaaja2);
 
             //tulosta animaatio kaikille korteille
             tulostaKokoKasiAnimaatioAsync();
 
             //jos vuoroja jäljellä 0 -->  enabloi uusi peli nappi ja disabloi vaihtonappi. 
             //pitäisi varmaan tulostaa myös mahdollinen käden vahvuus
-            if (vuorojaJaljella == 0)
-            { 
-                peliKaynnissa = false;
+            if (pokeripeli.GetVuorojaJaljella() == 0)
+            {              
                 button1.Enabled = true;
                 button2.Enabled = false;
             }
@@ -290,123 +205,88 @@ namespace Kehittyneet_graafinenKorttipeli
         private void pictureBox0_Click(object sender, EventArgs e)
         {          
             int index = 0;
-            korttienVaihto(pictureBoxit.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja1.ElementAt(index), index, pelaaja1);
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             int index = 1;
-            korttienVaihto(pictureBoxit.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja1.ElementAt(index), index,pelaaja1);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             int index = 2;
-            korttienVaihto(pictureBoxit.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja1.ElementAt(index), index, pelaaja1);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             int index = 3;
-            korttienVaihto(pictureBoxit.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja1.ElementAt(index), index, pelaaja1);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             int index = 4;
-            korttienVaihto(pictureBoxit.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja1.ElementAt(index), index, pelaaja1);
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             int index = 0;
-            korttienVaihto2(pictureBoxit2.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja2.ElementAt(index), index, pelaaja2);
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
             int index = 1;
-            korttienVaihto2(pictureBoxit2.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja2.ElementAt(index), index, pelaaja2);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
             int index = 2;
-            korttienVaihto2(pictureBoxit2.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja2.ElementAt(index), index, pelaaja2);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
             int index = 3;
-            korttienVaihto2(pictureBoxit2.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja2.ElementAt(index), index, pelaaja2);
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
             int index = 4;
-            korttienVaihto2(pictureBoxit2.ElementAt(index), index);
+            korttienVaihto(PicBoxitPelaaja2.ElementAt(index), index, pelaaja2);
         }
 
         //klikki funktioille yhteinen toteutus, sama järjestys picboxien indeksit ja käden korttien indeksit ettei mee sekaisin
-        private void korttienVaihto(PictureBox p_box, int index)
-        {   
+        private void korttienVaihto(PictureBox p_box, int index, Kasi player)
+        {
             //jos ei vaihtoja jäljellä, ei voi vaihtaa enää
-            if (vuorojaJaljella == 0)
-            {
+            if (pokeripeli.GetVuorojaJaljella() == 0)
                 return;
-            }
+            
             
             // jos kortti oikeinpäin
-            if (kasi.getKortti(index).korttiOikeinPain())
+            if (pokeripeli.getKorttiOikeinPain(player, index))
             {
                 //picBox tyhjäksi ja kortti väärinpäin kuva, aseta kortti olioon booleani
                 p_box.InitialImage = null;
                 p_box.Image = Image.FromFile(korttiVaarinpain);
-                kasi.getKortti(index).kaannaKortti();
+                pokeripeli.kaannaKortti(player, index);
             }
             else
             {
+                //kortti oikein päin, aseta booleani
                 p_box.InitialImage = null;
-                p_box.Image = Image.FromFile(kasi.getKortti(index).getTiedostoNimi());
-                kasi.getKortti(index).kaannaKortti();
+                p_box.Image = Image.FromFile(pokeripeli.getKortinTiedostonimi(player,index));
+                pokeripeli.kaannaKortti(player, index);
             }            
         }
-
-        private void korttienVaihto2(PictureBox p_box, int index)
-        {
-            //jos ei vaihtoja jäljellä, ei voi vaihtaa enää
-            if (vuorojaJaljella == 0)
-            {
-                return;
-            }
-
-            // jos kortti oikeinpäin
-            if (kasi2.getKortti(index).korttiOikeinPain())
-            {
-                //picBox tyhjäksi ja kortti väärinpäin kuva, aseta kortti olioon booleani
-                p_box.InitialImage = null;
-                p_box.Image = Image.FromFile(korttiVaarinpain);
-                kasi2.getKortti(index).kaannaKortti();
-            }
-            else
-            {
-                p_box.InitialImage = null;
-                p_box.Image = Image.FromFile(kasi2.getKortti(index).getTiedostoNimi());
-                kasi2.getKortti(index).kaannaKortti();
-            }
-        }
-
-        // en oo uskaltanu poistaa ku visual studio herjaa
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LABEL2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void teemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             valittuTeemaIndex++;

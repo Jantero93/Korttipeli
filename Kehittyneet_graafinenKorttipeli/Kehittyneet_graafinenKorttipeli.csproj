@@ -55,6 +55,7 @@
     <Compile Include="Kasi.cs" />
     <Compile Include="Kortti.cs" />
     <Compile Include="Korttipakka.cs" />
+    <Compile Include="Pokeri.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
