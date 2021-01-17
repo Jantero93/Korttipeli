@@ -187,10 +187,11 @@
             this.LABEL2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.LABEL2.Location = new System.Drawing.Point(397, 318);
             this.LABEL2.Name = "LABEL2";
-            this.LABEL2.Size = new System.Drawing.Size(132, 25);
+            this.LABEL2.Size = new System.Drawing.Size(34, 25);
             this.LABEL2.TabIndex = 9;
-            this.LABEL2.Text = "vaihtojajäljellä";
+            this.LABEL2.Text = "10";
             this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
             // kadenArvoLabel
             // 
@@ -199,9 +200,9 @@
             this.kadenArvoLabel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.kadenArvoLabel.Location = new System.Drawing.Point(467, 86);
             this.kadenArvoLabel.Name = "kadenArvoLabel";
-            this.kadenArvoLabel.Size = new System.Drawing.Size(187, 25);
+            this.kadenArvoLabel.Size = new System.Drawing.Size(34, 25);
             this.kadenArvoLabel.TabIndex = 10;
-            this.kadenArvoLabel.Text = "Kädenarvo pelaaja1";
+            this.kadenArvoLabel.Text = "11";
             this.kadenArvoLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // pictureBox5
@@ -256,9 +257,9 @@
             this.kadenArvoLabel2.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
             this.kadenArvoLabel2.Location = new System.Drawing.Point(467, 207);
             this.kadenArvoLabel2.Name = "kadenArvoLabel2";
-            this.kadenArvoLabel2.Size = new System.Drawing.Size(178, 25);
+            this.kadenArvoLabel2.Size = new System.Drawing.Size(34, 25);
             this.kadenArvoLabel2.TabIndex = 16;
-            this.kadenArvoLabel2.Text = "kädenarvopelaaja2";
+            this.kadenArvoLabel2.Text = "11";
             this.kadenArvoLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Form1

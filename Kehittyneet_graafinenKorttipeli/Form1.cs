@@ -35,10 +35,24 @@ namespace Kehittyneet_graafinenKorttipeli
             */
                  
 
+<<<<<<< HEAD
         //globaaleja   
         Pokeri pokeripeli = new Pokeri();
         Kasi pelaaja1 = new Kasi();
         Kasi pelaaja2 = new Kasi();
+=======
+      
+
+        //globaaleja
+        Kasi kasi = new Kasi();
+        Kasi kasi2 = new Kasi();
+        Korttipakka pakka = new Korttipakka();
+        int vuorojaJaljella = 0;
+        // ei käytössä
+        bool peliKaynnissa;
+
+
+>>>>>>> e6411f75ce89e3fe639d7dc86edada4d0daa4af1
 
         List<String> korttienTeemat = new List<String>();
         int valittuTeemaIndex = 0;
@@ -286,6 +300,34 @@ namespace Kehittyneet_graafinenKorttipeli
                 pokeripeli.kaannaKortti(player, index);
             }            
         }
+<<<<<<< HEAD
+=======
+
+        private void korttienVaihto2(PictureBox p_box, int index)
+        {
+            //jos ei vaihtoja jäljellä, ei voi vaihtaa enää
+            if (vuorojaJaljella == 0)
+            {
+                return;
+            }
+
+            // jos kortti oikeinpäin
+            if (kasi2.getKortti(index).korttiOikeinPain())
+            {
+                //picBox tyhjäksi ja kortti väärinpäin kuva, aseta kortti olioon booleani
+                p_box.InitialImage = null;
+                p_box.Image = Image.FromFile(korttiVaarinpain);
+                kasi2.getKortti(index).kaannaKortti();
+            }
+            else
+            {
+                p_box.InitialImage = null;
+                p_box.Image = Image.FromFile(kasi2.getKortti(index).getTiedostoNimi());
+                kasi2.getKortti(index).kaannaKortti();
+            }
+        }
+
+>>>>>>> e6411f75ce89e3fe639d7dc86edada4d0daa4af1
         
         private void teemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -297,7 +339,10 @@ namespace Kehittyneet_graafinenKorttipeli
             tulostaKokoKasiAnimaatioAsync();            
         }
 
-      
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
