@@ -21,50 +21,25 @@ namespace Kehittyneet_graafinenKorttipeli
                 //Enum.GetValues = hakee enumin varsinaisen int arvon. risti = 0, ruutu = 1, hertta = 2, pata = 3 
                 //eli pakkaan tehdään kaikki kortit ristit 2 - A, ruudut 2 - A jne
                 foreach (MAA maa in Enum.GetValues(typeof(MAA)))
-                    korttiLista.Add(new Kortti(i, maa));
+                    korttiPakka.Push(new Kortti(i, maa)); 
             }
 
-            this.sekoitaKorttilista();
-
-            foreach (Kortti kortti in korttiLista)
-            {
-                korttiPakka.Push(kortti);
-            }
-        }
-        /* 
-        public void tulostaKokoLista()
-        {           
-            for (int i = 0; i < korttiLista.Count(); i++)
-            {
-                Console.Write(korttiLista.ElementAt(i) + "\n");
-            }   
-            
-        }        
-        */
-        private void jarjestaKorttilista()
-        {
-            korttiLista = korttiLista.OrderBy(p => p.arvo).ToList();
-        }
-
-        private void sekoitaKorttilista()
-        {   // kuinka hyvä satunnaisuus todellisuudessa?
-            korttiLista = korttiLista.OrderBy(a => Guid.NewGuid()).ToList();
-        }
+            this.sekoitaKorttiPakka();            
+        }   
 
         public void sekoitaKorttiPakka()
         {   /* 
             esim tälläinen toteutus niin saisi sekoitaKorttilista() ja jarjestaKorttilista() metodit pois
              */
-            List<Kortti> temp_kortit = new List<Kortti>();
+            List<Kortti> tempKorttilista = new List<Kortti>();
 
             while (korttiPakka.Count > 0)
-                temp_kortit.Add(korttiPakka.Pop());
+                tempKorttilista.Add(korttiPakka.Pop());
 
-            temp_kortit = temp_kortit.OrderBy(a => Guid.NewGuid()).ToList();
+            tempKorttilista = tempKorttilista.OrderBy(a => Guid.NewGuid()).ToList();
 
-            foreach (Kortti kortti in temp_kortit)
+            foreach (Kortti kortti in tempKorttilista)
                 korttiPakka.Push(kortti);
-
         }
 
         public override string ToString()
@@ -79,9 +54,11 @@ namespace Kehittyneet_graafinenKorttipeli
 
         public Kortti annaKortti()
         {
-            return korttiPakka.Pop();
+            if (korttiPakka.Count() <= 0)
+                throw new IndexOutOfRangeException("Korttipakasta loppui kortit");
+            else
+                return korttiPakka.Pop();
         }
-
 
         public int getStackKoko()
         {
