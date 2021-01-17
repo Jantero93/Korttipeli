@@ -33,27 +33,12 @@ namespace Kehittyneet_graafinenKorttipeli
             kasi olion indeksointi muuttuu kun poistaa kortin kädestä, mikä ei ole viimeisessä indeksissä
 
             */
-                 
-
-
+            
         //globaaleja   
         Pokeri pokeripeli = new Pokeri();
         Kasi pelaaja1 = new Kasi();
         Kasi pelaaja2 = new Kasi();
-
-      
-
-        //globaaleja
-        Kasi kasi = new Kasi();
-        Kasi kasi2 = new Kasi();
-        Korttipakka pakka = new Korttipakka();
-        int vuorojaJaljella = 0;
-        // ei käytössä
-        bool peliKaynnissa;
-
-
-
-
+        
         List<String> korttienTeemat = new List<String>();
         int valittuTeemaIndex = 0;
         //korttien takapuolet
@@ -76,8 +61,6 @@ namespace Kehittyneet_graafinenKorttipeli
         List<int> vaihdettavatKortit = new List<int>();
         //"animaation" nopeus (ms)
         const int odotusaika = 100;
-
-
 
         public Form1()
         {
@@ -144,13 +127,13 @@ namespace Kehittyneet_graafinenKorttipeli
         {            
             LABEL2.Text = "Vaihtoja jäljellä:" + pokeripeli.GetVuorojaJaljella().ToString(); 
 
-            // ota pictureBoxeista kuvat pois, tarviikohan?
+            /*
             for (int i = 0; i < PicBoxitPelaaja1.Count(); i++)
             { 
                 PicBoxitPelaaja1.ElementAt(i).InitialImage = null;
                 PicBoxitPelaaja2.ElementAt(i).InitialImage = null;
             }
-
+            */
             //käännä kaikki kortit väärinpäin
             for (int i = 0; i < 5; i++)
             {
@@ -184,7 +167,6 @@ namespace Kehittyneet_graafinenKorttipeli
             peliPaalle();
         }
 
-        // :D
         private void salaisuusToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Ei saa olla salaisuuksia");
@@ -300,33 +282,6 @@ namespace Kehittyneet_graafinenKorttipeli
                 pokeripeli.kaannaKortti(player, index);
             }            
         }
-
-
-        private void korttienVaihto2(PictureBox p_box, int index)
-        {
-            //jos ei vaihtoja jäljellä, ei voi vaihtaa enää
-            if (vuorojaJaljella == 0)
-            {
-                return;
-            }
-
-            // jos kortti oikeinpäin
-            if (kasi2.getKortti(index).korttiOikeinPain())
-            {
-                //picBox tyhjäksi ja kortti väärinpäin kuva, aseta kortti olioon booleani
-                p_box.InitialImage = null;
-                p_box.Image = Image.FromFile(korttiVaarinpain);
-                kasi2.getKortti(index).kaannaKortti();
-            }
-            else
-            {
-                p_box.InitialImage = null;
-                p_box.Image = Image.FromFile(kasi2.getKortti(index).getTiedostoNimi());
-                kasi2.getKortti(index).kaannaKortti();
-            }
-        }
-
-
         
         private void teemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
