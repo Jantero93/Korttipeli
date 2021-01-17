@@ -35,12 +35,12 @@ namespace Kehittyneet_graafinenKorttipeli
             */
                  
 
-<<<<<<< HEAD
+
         //globaaleja   
         Pokeri pokeripeli = new Pokeri();
         Kasi pelaaja1 = new Kasi();
         Kasi pelaaja2 = new Kasi();
-=======
+
       
 
         //globaaleja
@@ -52,7 +52,7 @@ namespace Kehittyneet_graafinenKorttipeli
         bool peliKaynnissa;
 
 
->>>>>>> e6411f75ce89e3fe639d7dc86edada4d0daa4af1
+
 
         List<String> korttienTeemat = new List<String>();
         int valittuTeemaIndex = 0;
@@ -300,8 +300,7 @@ namespace Kehittyneet_graafinenKorttipeli
                 pokeripeli.kaannaKortti(player, index);
             }            
         }
-<<<<<<< HEAD
-=======
+
 
         private void korttienVaihto2(PictureBox p_box, int index)
         {
@@ -327,7 +326,7 @@ namespace Kehittyneet_graafinenKorttipeli
             }
         }
 
->>>>>>> e6411f75ce89e3fe639d7dc86edada4d0daa4af1
+
         
         private void teemaToolStripMenuItem_Click(object sender, EventArgs e)
         {

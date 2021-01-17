@@ -191,7 +191,6 @@
             this.LABEL2.TabIndex = 9;
             this.LABEL2.Text = "10";
             this.LABEL2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.LABEL2.Click += new System.EventHandler(this.LABEL2_Click);
             // 
             // kadenArvoLabel
             // 
